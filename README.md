@@ -20,12 +20,17 @@ Flags can be passed on the command line or in an ini file. The default file name
  
 ## Examples
 
+### Before you start
+
+Obtain the user identity and key as per https://github.com/home-assistant/home-assistant/issues/10252
+
 ### Get all info
 
 ```bash
 $ cat tradfri.ini
 gateway = 192.168.172.2
 key = abcdefgh12345678
+user = USERNAME
 $ ./tradfri -status
 Looking for devices... enumerating:
 ID: 65536, Name; Remote, Description: TRADFRI remote control

@@ -10,7 +10,7 @@ import (
 
         "github.com/davecgh/go-spew/spew"
 	"github.com/vharitonsky/iniflags"
-	"github.com/zubairhamed/canopus"
+	"github.com/ayourtch/canopus"
 
 )
 
@@ -35,9 +35,9 @@ func check(e error) {
 	}
 }
 
-func tradfri_conn(address string, key string) canopus.Connection {
+func tradfri_conn(address string, user string, key string) canopus.Connection {
 	var tradfri_gw = fmt.Sprintf("%s:5684", address)
-	conn, err := canopus.DialDTLS(tradfri_gw, "", key)
+	conn, err := canopus.DialDTLS(tradfri_gw, user, key)
 	check(err)
 	return conn
 }
@@ -249,7 +249,7 @@ func validate_flags() {
 
 func main() {
 	validate_flags()
-	conn := tradfri_conn(*gateway, *key)
+	conn := tradfri_conn(*gateway, *user, *key)
 	if *status && *target_id == -1 {
 		list_devices(list_device_ids(conn), conn)
 		list_groups(list_group_ids(conn), conn)

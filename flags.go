@@ -7,6 +7,8 @@ var (
 		"Address of Tradfri gateway.")
 	key = flag.String("key", "deadbeef",
 		"API key to access gateway.")
+	user = flag.String("user", "user",
+		"API user to access gateway.")
 	status = flag.Bool("status", false,
 		"Show status of Tradfri devices. Will show all devices unless device id is set.")
 	power = flag.Bool("power", false,
